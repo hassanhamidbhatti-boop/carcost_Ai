@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="CarCost AI estimates the real cost of owning a car. Compare fuel, maintenance, insurance and depreciation.">
+  <title>CarCost AI — Know the Real Cost of Your Car</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="#"><span class="brand-mark">🚗</span><span>CarCost <b>AI</b></span></a>
+  <nav>
+    <a href="#calculator">Calculator</a><a href="#compare">Compare</a><a href="#how">How it works</a>
+  </nav>
+  <a class="nav-btn" href="#calculator">Calculate</a>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">SMART CAR OWNERSHIP CALCULATOR</div>
+    <h1>Know the <span>real cost</span> of your car.</h1>
+    <p>Fuel is only part of the story. CarCost AI estimates your total monthly and yearly ownership cost — including maintenance, insurance, tyres and depreciation.</p>
+    <div class="hero-actions">
+      <a class="primary" href="#calculator">Calculate my car cost <span>→</span></a>
+      <a class="secondary" href="#compare">Compare cars</a>
+    </div>
+    <div class="trust"><span>✓ No signup required</span><span>✓ Instant estimate</span><span>✓ Pakistan-ready</span></div>
+  </div>
+  <div class="hero-card">
+    <div class="card-top"><span>TRUE COST ESTIMATE</span><span class="live-dot">● LIVE</span></div>
+    <div class="car-mini"><div class="car-icon">🚙</div><div><strong>Toyota Corolla 1.6</strong><small>Example ownership profile</small></div></div>
+    <div class="cost-main"><small>Estimated monthly cost</small><strong>Rs. 58,500</strong><span>≈ Rs. 702,000 / year</span></div>
+    <div class="mini-grid"><div><small>Fuel</small><b>Rs. 32.5K</b></div><div><small>Maintenance</small><b>Rs. 6K</b></div><div><small>Insurance</small><b>Rs. 4K</b></div><div><small>Depreciation</small><b>Rs. 12K</b></div></div>
+  </div>
+</section>
+
+<section id="calculator" class="section calculator-section">
+  <div class="section-head"><div><div class="eyebrow">01 / CALCULATOR</div><h2>Calculate your travel cost</h2></div><p>Adjust the numbers for your driving habits. Estimates are transparent and editable.</p></div>
+  <div class="calculator">
+    <form id="costForm" class="form-panel">
+      <div class="field-row">
+        <label>Car model <input id="car" value="Toyota Corolla 1.6" placeholder="e.g. Honda Civic"></label>
+        <label>City <select id="city"><option>Karachi</option><option>Lahore</option><option>Islamabad</option><option>Rawalpindi</option><option>Other</option></select></label>
+      </div>
+      <div class="field-row">
+        <label>Distance / month <div class="unit"><input id="distance" type="number" value="1200" min="0"><span>km</span></div></label>
+        <label>Fuel price <div class="unit"><input id="fuelPrice" type="number" value="300" min="0"><span>Rs/L</span></div></label>
+      </div>
+      <div class="field-row">
+        <label>Average mileage <div class="unit"><input id="mileage" type="number" value="12" min="1" step=".1"><span>km/L</span></div></label>
+        <label>Maintenance / year <div class="unit"><input id="maintenance" type="number" value="72000" min="0"><span>Rs</span></div></label>
+      </div>
+      <div class="field-row">
+        <label>Insurance / year <div class="unit"><input id="insurance" type="number" value="48000" min="0"><span>Rs</span></div></label>
+        <label>Tyres & wear / year <div class="unit"><input id="tyres" type="number" value="30000" min="0"><span>Rs</span></div></label>
+      </div>
+      <div class="field-row">
+        <label>Purchase price <div class="unit"><input id="purchase" type="number" value="5500000" min="0"><span>Rs</span></div></label>
+        <label>Depreciation / year <div class="unit"><input id="depreciation" type="number" value="144000" min="0"><span>Rs</span></div></label>
+      </div>
+      <button class="primary full" type="submit">Calculate true cost <span>→</span></button>
+      <p class="form-note">This is an estimate, not financial or insurance advice. Actual costs vary by vehicle, driver, usage and market conditions.</p>
+    </form>
+    <aside class="result-panel" id="result">
+      <div class="result-label">YOUR ESTIMATE</div>
+      <h3 id="resultCar">Toyota Corolla 1.6</h3>
+      <div class="big-cost"><small>Monthly ownership cost</small><strong id="monthly">Rs. 0</strong><span id="yearly">Rs. 0 / year</span></div>
+      <div class="bars">
+        <div><span>Fuel</span><b id="fuelOut">Rs. 0</b><i><em id="fuelBar"></em></i></div>
+        <div><span>Maintenance</span><b id="maintOut">Rs. 0</b><i><em id="maintBar"></em></i></div>
+        <div><span>Insurance</span><b id="insOut">Rs. 0</b><i><em id="insBar"></em></i></div>
+        <div><span>Tyres & wear</span><b id="tyreOut">Rs. 0</b><i><em id="tyreBar"></em></i></div>
+        <div><span>Depreciation</span><b id="depOut">Rs. 0</b><i><em id="depBar"></em></i></div>
+      </div>
+      <div class="per-km">Cost per kilometre <strong id="perKm">Rs. 0</strong></div>
+    </aside>
+  </div>
+</section>
+
+<section id="compare" class="section dark-section">
+  <div class="section-head light"><div><div class="eyebrow">02 / COMPARE</div><h2>Compare cars by total cost.</h2></div><p>Purchase price doesn't tell the whole story. See what your monthly budget really buys.</p></div>
+  <div class="compare-grid">
+    <article class="compare-card"><div class="rank">01</div><h3>Honda City 1.2</h3><div class="compare-cost">Rs. 47,200<small>/ month</small></div><div class="score"><span>Ownership score</span><b>9.1/10</b></div><a href="#calculator" onclick="prefill('Honda City 1.2')">Use this car →</a></article>
+    <article class="compare-card featured"><div class="badge">POPULAR</div><div class="rank">02</div><h3>Toyota Corolla 1.6</h3><div class="compare-cost">Rs. 58,500<small>/ month</small></div><div class="score"><span>Ownership score</span><b>8.7/10</b></div><a href="#calculator" onclick="prefill('Toyota Corolla 1.6')">Use this car →</a></article>
+    <article class="compare-card"><div class="rank">03</div><h3>Honda Civic 1.5</h3><div class="compare-cost">Rs. 66,800<small>/ month</small></div><div class="score"><span>Ownership score</span><b>8.0/10</b></div><a href="#calculator" onclick="prefill('Honda Civic 1.5')">Use this car →</a></article>
+  </div>
+</section>
+
+<section id="how" class="section">
+  <div class="section-head"><div><div class="eyebrow">03 / HOW IT WORKS</div><h2>From car price to true cost.</h2></div></div>
+  <div class="steps">
+    <div><span>01</span><h3>Tell us how you drive</h3><p>Distance, mileage, city and ownership details.</p></div>
+    <div><span>02</span><h3>We break down the cost</h3><p>Fuel, maintenance, insurance, wear and depreciation.</p></div>
+    <div><span>03</span><h3>Make a smarter decision</h3><p>Compare cars and understand the long-term impact.</p></div>
+  </div>
+</section>
+
+<section class="cta"><div><div class="eyebrow">READY?</div><h2>Stop guessing. Start calculating.</h2><p>Build a smarter car budget in under a minute.</p></div><a class="primary" href="#calculator">Calculate now →</a></section>
+</main>
+
+<footer><div class="brand"><span class="brand-mark">🚗</span><span>CarCost <b>AI</b></span></div><span>© 2026 CarCost AI. Built for smarter ownership decisions.</span><div><a href="#">Privacy</a><a href="#">Terms</a></div>    <div class="creator-credit"><span>Crafted with precision by</span><strong>Awais Bhatti</strong></div>
+</footer>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
